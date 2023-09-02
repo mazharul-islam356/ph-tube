@@ -1,17 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
+<html data-theme="light" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>QNA</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
     <header>
-
+        <h1 class="text-8xl font-semibold text-blue-500 text-center mt-8">QNA</h1>
     </header>
-    <main>
+    <main class="w-11/12 mx-auto mt-20">
 
-<h1>Hello world</h1>
+        <div class="collapse collapse-arrow bg-blue-300 mb-4">
+            <input type="radio" name="my-accordion-2" checked="checked" /> 
+            <div class="collapse-title text-2xl font-bold">
+               <span class="text-3xl text-red-400" >Q:</span> Discuss the scope of var, let, and const
+            </div>
+            <div class="collapse-content"> 
+              <p class="font-semibold">
+             <span class="text-2xl text-red-400" >Ans:</span> <br>
+                var: <br>
+                var is a JavaScript keyword used to declare variables. Declaring something with var can be used both outside and inside the function and its value can be changed. <br> <br>
+                
+                let: <br>
+                
+                let is also a JavaScript keyword. The variable scope declared by let is block scope. That is, the variable declared by let can be used only within the block in which it is declared and its value can be changed. <br> <br>
+                
+                const: <br>
+                
+                The scope of a variable declared by const is block scope and cannot be changed. That is, the value of a variable declared by const once set cannot be changed later. </p>
+            </div>
+          </div>
+          <div class="collapse collapse-arrow bg-green-300 mb-4">
+            <input type="radio" name="my-accordion-2" /> 
+            <div class="collapse-title text-2xl font-bold">
+                <span class="text-3xl text-red-400" >Q:</span> Tell us the use cases of null and undefined
+            </div>
+            <div class="collapse-content"> 
+              <p class="font-semibold">
+                <span class="text-2xl text-red-400" >Ans:</span>
+                The main difference between null and undefined in JavaScript is that null is a value that represents the absence of a value, while undefined is a keyword that represents a variable that has not been assigned a value.</p>
+            </div>
+          </div>
+          <div class="collapse collapse-arrow bg-blue-300">
+            <input type="radio" name="my-accordion-2" /> 
+            <div class="collapse-title text-2xl font-bold">
+                <span class="text-3xl text-red-400" >Q:</span> What do you mean by REST API?
+            </div>
+            <div class="collapse-content"> 
+              <p class="font-semibold">
+                <span class="text-2xl text-red-400" >Ans:</span>
+                 REST API stands for Representational State Transfer Application Programming Interface. It is an architectural style for designing APIs (Application Programming Interfaces) that are loosely coupled and easy to use. REST APIs are based on the HTTP protocol and use standard HTTP verbs (GET, POST, PUT, DELETE) to perform operations on resources.
+                
+                REST APIs are often used to connect different applications and systems, and to allow users to interact with data over the internet. They are a popular choice for building APIs because they are easy to understand and implement, and they are widely supported by different programming languages and platforms.</p>
+            </div>
+          </div>
 
     </main>
     <footer>

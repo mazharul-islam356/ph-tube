@@ -35,7 +35,6 @@ headerInfo()
 const handleClick = async () => {
     const res = await fetch ('https://openapi.programming-hero.com/api/videos/categories');
     
-    
     const data = await res.json();
     
     const tabContainer = document.getElementById('tabContainer')
@@ -57,8 +56,8 @@ const handleClick = async () => {
 
 const handleLoadCard = async (catagoryId) =>{
     const res = await fetch (` https://openapi.programming-hero.com/api/videos/category/${catagoryId}`)
+    
     const data = await res.json();
-
     const cardContainer = document.getElementById('cardContainer');
     const blankData = document.getElementById('blank-data');
     
@@ -74,29 +73,40 @@ const handleLoadCard = async (catagoryId) =>{
         
         </div>
       `
+      
       blankData.appendChild(p)
     }
-
+    
     cardContainer.innerHTML = ""
     
+
     data.data.forEach((card) => {
-        // console.log(card);
-        // console.log(cardContainer)
+      const convertSecToTime = (sec) => {
+        var sec = parseInt(sec);
+        var hrs = Math.floor(sec / 3600);
+        var mins = Math.floor((sec % 3600) / 60);
+    
+        return (` <div">
+        <p class="bg-black text-white">
+        ${`${hrs}hrs ${mins}min`}</p>
+        </div>`);
+    }
         const div = document.createElement('div');
         
-        // console.log(card)
         div.innerHTML = `
         <div class="card bg-base-100 shadow-xl pt-6">
-            <figure><img class= "h-[150px]" src="${card.thumbnail}" alt="#" /></figure>
+            <figure><img class= "h-[150px]" src="${card.thumbnail}" alt="#" />
+            </figure>
             <div class="card-body">
   
               <div class="flex gap-4">
                 <div>
                   <img class="rounded-full w-14 h-14" src="${card.authors[0].profile_picture}" alt="#">
                 </div>
+                
                 <div>
                   <h2 class="text-xl font-semibold">${card.title}</h2>               
-  
+
                   <div class="flex gap-2">
                     <div>
                       <p>${card.authors[0].profile_name}</p>
@@ -127,29 +137,35 @@ const handleLoadCard = async (catagoryId) =>{
         cardContainer.appendChild(div);
 
 
+        
+
     });
 
     
+
 }
 
 
-// ----------------views section--------------------
-const handleSortButton = async () =>{
-  const res = await fetch (` https://openapi.programming-hero.com/api/videos/category/1000`)
+// ----------------sort views section-----------------
+const handleSortButton = async () => {
+  const res = await fetch(`https://openapi.programming-hero.com/api/videos/category/1000`);
   const data = await res.json();
   const mainData = data.data;
-  mainData.forEach((random)=>{
-  const viewsData = random.others.views;
-  console.log(viewsData)
 
-
-  })
-
-
+  const arr = [];
   
 
+  mainData.forEach((random) => {
+    const viewsData = parseFloat(random.others.views);
+    arr.push(viewsData);
+  });
 
-}
+  arr.sort((b, a) => a - b);
+  console.log(arr);
+  
+};
+
+
 
 
 
@@ -157,4 +173,7 @@ const handleSortButton = async () =>{
 handleSortButton()
 handleClick ()
 handleLoadCard(1000)
+
+
+
 
